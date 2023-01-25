@@ -1,0 +1,53 @@
+{% extends 'layout.html' %}
+{% block title %}Sae 23{% endblock %}
+{% block main %}
+
+<h1>Page d'accueil bienvenue : {{ user }}</h1>
+<ul>
+    <button onclick="window.location.href = '/';">Accueil</button>
+    <button onclick="window.location.href = '/anuaire';">Anuaire</button>
+    <button onclick="window.location.href = '/mesinfos';">Mes infos</button>
+    <button onclick="window.location.href = '/mesdemandes';">Mes demandes</button>
+    <button onclick="window.location.href = '/admin';">Comptes Chef</button>
+    <button onclick="window.location.href = '/admindemandes';">Demandes Chef</button>
+    <button onclick="window.location.href = '/depenses';">Dépense et administratif</button>
+    <button onclick="window.location.href = '/logout';">Déconnexion</button>
+
+</ul>
+
+<h2>Bienvenue sur l'application web des demandes et gestions de missions </h2>
+<table>
+    <caption></caption>
+    <thead>
+    <tr>
+        <th>Id mission</th>
+        <td>Motif</td>
+        <td>Debut</td>
+        <td>Fin</td>
+        <th>Etat</th>
+        <th>Ville</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for u in mission %}
+    <tr>
+        <th>{{ u["id"] }}</th>
+        <td>{{ u["motif"] }}</td>
+        <td>{{ u["debut"] }}</td>
+        <td>{{ u["fin"] }}</td>
+        <td>{{ u["Etat"] }}</td>
+        <td>{{ u["Ville"] }}</td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+        <th colspan="4"></th>
+    </tr>
+    {% endfor %}
+    </tfoot>
+</table>
+
+
+
+
+{% endblock %}

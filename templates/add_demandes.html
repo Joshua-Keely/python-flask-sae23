@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+{% block title %}Ajout d'une demande{% endblock %}
+{% block main %}
+<form method="POST">
+    <h1>Ajout d'une demande </h1>
+    <fieldset>
+        <legend>Transport aller</legend>
+        <label>Type de transport : <input type="text" name="typealler" required autofocus autocomplete="off"></label><br>
+        <label>Numéro du billet : <input type="text" name="numeroaller" required autofocus autocomplete="off"> </label><br>
+        <label>Prix du billet : <input type="text" name="coutaller" required autofocus autocomplete="off"> </label><br>
+        <label>Date de départ : <input type="date" name="debutaller" required autofocus autocomplete="off"> </label><br>
+    </fieldset>
+    <fieldset>
+        <legend>Transport retour</legend>
+        <label>Type de transport : <input type="text" name="typeretour" required autofocus autocomplete="off"></label><br>
+        <label>Numéro du billet : <input type="text" name="numeroretour" required autofocus autocomplete="off"> </label><br>
+        <label>Prix du billet : <input type="text" name="coutretour" required autofocus autocomplete="off"> </label><br>
+        <label>Date de départ : <input type="date" name="debutretour" required autofocus autocomplete="off"> </label><br>
+    </fieldset>
+    <button type="submit">Suivant</button>
+    <button type="button" onclick="window.location.href='{{url_for('mesdemandes')}}'">Annuler</button>
+</form>
+{% endblock %}

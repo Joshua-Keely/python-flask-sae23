@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+{% block title %}Modification d'un utilisateur{% endblock %}
+{% block main %}
+<form method="POST" action="/demandes/edit/<id>">
+    <h1>Modification etat demande</h1>
+    <fieldset>
+        <label>Id de la demande :
+            <input type="text" value="{{ id }}" name="id" pattern="^[a-z][a-z0-9]{2,7}$"
+                   required autofocus autocomplete="off" readonly="readonly">
+       <select name="etat" >
+    <option value="">--Choisir un etat--</option>
+    <option value="demandée">demandée</option>
+    <option value="validée">validée</option>
+    <option value="archivée">archivée</option>
+           <option value="rejetée">rejetée</option>
+</select>
+        <button type="submit">Envoyer</button>
+        <button type="button" onclick="window.location.href='{{url_for('admindemandes')}}'">Annuler</button>
+    </fieldset>
+</form>
+{% endblock %}

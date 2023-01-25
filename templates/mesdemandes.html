@@ -1,0 +1,67 @@
+{% extends 'layout.html' %}
+{% block title %}Sae 23{% endblock %}
+{% block main %}
+
+
+<h1>Mes demandes : {{ user }}</h1>
+<ul>
+    <button onclick="window.location.href = '/';">Accueil</button>
+    <button onclick="window.location.href = '/anuaire';">Anuaire</button>
+    <button onclick="window.location.href = '/mesinfos';">Mes infos</button>
+    <button onclick="window.location.href = '/logout';">Déconnexion</button>
+</ul>
+
+<table>
+    <caption></caption>
+    <thead>
+    <tr>
+        <th>Id mission</th>
+        <td>Motif</td>
+        <td>Code postal</td>
+        <td>Debut</td>
+        <td>Fin</td>
+        <td>Repas</td>
+        <td>Etat</td>
+        <td>ID aller</td>
+        <td>ID retour</td>
+        <td>ID hebergement</td>
+        <td>Del</td>
+        <td>Edit mission</td>
+        <td>Edit aller</td>
+        <td>Edit retour</td>
+        <td>Edit hebergement</td>
+    </tr>
+    </thead>
+    <tbody>
+    {% for u in infos %}
+    <tr>
+        <th>{{ u["id"] }}</th>
+        <td>{{ u["motif"] }}</td>
+        <td>{{ u["code"] }}</td>
+        <th>{{ u["debut"] }}</th>
+        <td>{{ u["fin"] }}</td>
+        <td>{{ u["repas"] }}</td>
+        <td>{{ u["etat"] }}</td>
+        <td>{{ u["id_aller"] }}</td>
+        <td>{{ u["id_retour"] }}</td>
+        <td>{{ u["id_hebergement"] }}</td>
+        <td><a href="/mesdemandes/del/{{ u['id'] }}">&cross;</a></td>
+        <td><a href="/demande/edit/{{ u['id'] }}">&#128221;</a></td>
+        <td><a href="/transports/edit/{{ u['id_aller'] }}">&#128221;</a></td>
+        <td><a href="/transports/edit/{{ u['id_retour'] }}">&#128221;</a></td>
+        <td><a href="/hebergement/edit/{{ u['id_hebergement'] }}">&#128221;</a></td>
+    </tr>
+    {% endfor %}
+    </tbody>
+    <tfoot>
+    <tr>
+        <th colspan="7"></th>
+    </tr>
+    </tfoot>
+</table>
+<button onclick="window.location.href = '/mesdemandes/add/{{ user }}';">Nouvelle demande</button>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+{% block title %}Ajout d'un utilisateur{% endblock %}
+{% block main %}
+<form method="post" action="/comptes/add">
+    <h1>Ajout d'un utilisateur</h1>
+    <fieldset>
+        <legend>Ajout</legend>
+        <label>Identifiant :
+            <input type="text" name="login" pattern="^[a-z][a-z0-9]{2,7}$"
+                   required autofocus autocomplete="off">
+        </label><br>
+        <label>Mot de passe : <input type="password" name="mdp" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;"></label><br>
+         <select name="role" >
+    <option value="">--Choisir un role--</option>
+    <option value="enseignant">enseignant</option>
+    <option value="chef">chef</option>
+    <option value="administratif">administratif</option>
+           <option value="autre">autre</option>
+</select>
+
+
+        <button type="submit">Envoyer</button>
+        <button type="button" onclick="window.location.href='{{url_for('admin')}}'">Annuler</button>
+    </fieldset>
+</form>
+{% endblock %}

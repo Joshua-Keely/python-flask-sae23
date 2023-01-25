@@ -1,0 +1,49 @@
+{% extends 'layout.html' %}
+{% block title %}Sae 23{% endblock %}
+{% block main %}
+
+
+<h1>Comptes utilisateurs</h1>
+<ul>
+    <button onclick="window.location.href = '/';">Accueil</button>
+    <button onclick="window.location.href = '/mesdemandes';">Mes demandes</button>
+    <button onclick="window.location.href = '/mesinfos';">Mes infos</button>
+    <button onclick="window.location.href = '/logout';">Déconnexion</button>
+</ul>
+
+<table>
+    <caption></caption>
+    <thead>
+    <tr>
+        <th>Login</th>
+        <th>Role</th>
+        <th>Prenom</th>
+        <th>Nom</th>
+        <th>Chef missions</th>
+        <th>Administratif</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for u in comptes %}
+
+    <tr>
+        <th>{{ u["login"] }}</th>
+        <td>{{ u["role"] }}</td>
+        <th>{{ u["prenom"] }}</th>
+        <th>{{ u["nom"] }}</th>
+        <th><input type="checkbox" {{ 'checked' if u['role'] == 'chef' }} onclick="return false"></th>
+        <th><input type="checkbox" {{ 'checked' if u['role'] == 'administratif' }} onclick="return false"></th>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+        <th colspan="3"></th>
+    </tr>
+    {% endfor %}
+    </tfoot>
+</table>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="/static/css/dark.css">
+    <style>
+        .flash { padding: 8px; background-color: lightcoral; color: white;
+          border-radius: 15px; font-weight: bold; }
+    </style>
+</head>
+<body>
+{% for message in get_flashed_messages() %}
+<div class="flash">{{ message }}</div>
+{% endfor %}
+{% block main %}
+{% endblock %}
+
+
+<footer><h3>Développé par Lucas PECOUT et Joshua KEELY </h3>
+    <a href="/logout">Deconnexion</a>
+    <legend href="/logout">
+        <p>Version 1.0</p>
+    </legend></footer>
+</body>
+</html>

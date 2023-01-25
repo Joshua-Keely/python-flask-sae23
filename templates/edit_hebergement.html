@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+{% block title %}Ajout d'une demande{% endblock %}
+{% block main %}
+<form method="POST">
+    <h1>Ajout d'une demande </h1>
+    <fieldset>
+        <legend>Hébergements</legend>
+        <label>Id mission : <input type="text" name="id" readonly="readonly" value="{{ id }}"></label><br>
+        <label>Type d'hébergement : <input type="text" name="type" required autofocus autocomplete="off"></label><br>
+        <label>Nom de l'hébergement : <input type="text" name="nom" required autofocus autocomplete="off"></label><br>
+        <label>Adresse de l'hébergement : <input type="text" name="adresse" required autofocus autocomplete="off"></label><br>
+        <label>Code postal : <input type="text" name="code" required autofocus autocomplete="off"></label><br>
+        <label>Prix : <input type="text" name="cout" required autofocus autocomplete="off"> </label><br>
+    </fieldset>
+    <button type="submit">Envoyer</button>
+    <button type="button" onclick="window.location.href='{{url_for('mesdemandes')}}'">Annuler</button>
+</form>
+{% endblock %}

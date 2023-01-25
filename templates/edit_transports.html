@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+{% block title %}Modificaion d'une demande{% endblock %}
+{% block main %}
+<form method="POST">
+    <h1>Modification d'une demande </h1>
+    <fieldset>
+        <legend>Transport</legend>
+        <label>Id transports : <input type="text" name="id" readonly="readonly" value="{{ id }}"></label><br>
+        <label>Type de transport : <input type="text" name="type" required autofocus autocomplete="off"></label><br>
+        <label>Numéro du billet : <input type="text" name="numero" required autofocus autocomplete="off"> </label><br>
+        <label>Prix du billet : <input type="text" name="cout" required autofocus autocomplete="off"> </label><br>
+        <label>Date de départ : <input type="date" name="debut" required autofocus autocomplete="off"> </label><br>
+    </fieldset>
+    <button type="submit">Envoyer</button>
+    <button type="button" onclick="window.location.href='{{url_for('mesdemandes')}}'">Annuler</button>
+</form>
+{% endblock %}

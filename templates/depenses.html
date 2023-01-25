@@ -1,0 +1,102 @@
+{% extends 'layout.html' %}
+{% block title %}Sae 23{% endblock %}
+{% block main %}
+
+
+<h1>Depenses</h1>
+<ul>
+    <button onclick="window.location.href = '/';">Accueil</button>
+    <button onclick="window.location.href = '/add/depenses';">Nouvelle depenses</button>
+    <button onclick="window.location.href = '/logout';">Déconnexion</button>
+</ul>
+
+<h1>Les depenses</h1>
+<table>
+    <caption></caption>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>ID Mission</th>
+        <th>Nature</th>
+        <th>Cout</th>
+        <th>Supprimer</th>
+        <th>Editer</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for u in depenses %}
+
+    <tr>
+        <th>{{ u["id"] }}</th>
+        <td>{{ u["id_mission"] }}</td>
+        <th>{{ u["nature"] }}</th>
+        <th>{{ u["cout"] }}</th>
+        <td><a href="/depenses/del/{{ u['id'] }}">&cross;</a></td>
+        <td><a href="/depenses/edit/{{ u['id'] }}">&#128221;</a></td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+        <th colspan="3"></th>
+    </tr>
+    {% endfor %}
+    </tfoot>
+</table>
+
+<h1>Les missions</h1>
+
+
+<table>
+    <caption></caption>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <td>Motif</td>
+        <td>Debut</td>
+        <td>Fin</td>
+        <th>Ville</th>
+        <th>Etat</th>
+        <th>N Securité social</th>
+        <th>Login</th>
+         <td>ID aller</td>
+        <td>ID retour</td>
+        <td>ID hebergement</td>
+        <th>Edit statut</th>
+        <td>Edit mission</td>
+        <td>Edit aller</td>
+        <td>Edit retour</td>
+        <td>Edit hebergement</td>
+
+    </tr>
+    </thead>
+    <tbody>
+    {% for u in mission %}
+    <tr>
+        <th>{{ u["id"] }}</th>
+        <td>{{ u["motif"] }}</td>
+        <td>{{ u["debut"] }}</td>
+        <td>{{ u["fin"] }}</td>
+        <td>{{ u["Ville"] }}</td>
+        <td>{{ u["Etat"] }}</td>
+        <td>{{ u["secu"] }}</td>
+        <td>{{ u["login"] }}</td>
+        <td>{{ u["id_aller"] }}</td>
+        <td>{{ u["id_retour"] }}</td>
+        <td>{{ u["id_hebergement"] }}</td>
+        <td><a href="/demandes/edit/{{ u['id'] }}">&#128221;</a></td>
+                <td><a href="/demande/edit11/{{ u['id'] }}">&#128221;</a></td>
+        <td><a href="/transports/edit/{{ u['id_aller'] }}">&#128221;</a></td>
+        <td><a href="/transports/edit/{{ u['id_retour'] }}">&#128221;</a></td>
+        <td><a href="/hebergement/edit/{{ u['id_hebergement'] }}">&#128221;</a></td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+        <th colspan="8"></th>
+    </tr>
+    {% endfor %}
+    </tfoot>
+</table>
+
+
+{% endblock %}

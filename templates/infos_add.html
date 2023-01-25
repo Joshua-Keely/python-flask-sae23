@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+{% block title %}Ajout d'un utilisateur{% endblock %}
+{% block main %}
+<form method="post" action="/infos/edit/{{login}}">
+    <h1>Ajout d'un utilisateur</h1>
+    <fieldset>
+        <legend>Ajout</legend>
+        <label>Identifiant :
+            <input type="text" value="{{login}}" name="login" pattern="^[a-z][a-z0-9]{2,7}$"
+                   required autofocus autocomplete="off" readonly="readonly">
+        </label><br>
+        <label>N securité social : <input type="secu" name="role"> </label><br>
+        <label>Nom : <input type="text" name="nom"> </label><br>
+        <label>Prenom : <input type="text" name="prenom"> </label><br>
+        <label>Naissance : <input type="date" name="naissance"> </label><br>
+        <label>email : <input type="email" name="email"> </label><br>
+        <label>Tel : <input type="tel" name="tel"> </label><br>
+        <label>Tel urgence : <input type="tel" name="urgence"> </label><br>
+        <button type="submit">Envoyer</button>
+        <button type="button" onclick="window.location.href='{{url_for('comptes')}}'">Annuler</button>
+    </fieldset>
+</form>
+{% endblock %}

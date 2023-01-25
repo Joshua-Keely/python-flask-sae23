@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+{% block title %}Modification du profil{% endblock %}
+{% block main %}
+<form method="POST">
+
+    <h1>Modification d'une depenses </h1>
+    <fieldset>
+        <label>id_mission : <input type="text" value="{{ id }}" name="id" required autofocus autocomplete="off"> </label><br>
+        <label>id_mission : <input type="text" value="{{ id_mission }}" name="id_mission" required autofocus autocomplete="off"> </label><br>
+        <label>Nature : <input type="text" name="nature" required autofocus autocomplete="off"> </label><br>
+        <label>Cout : <input type="text" name="cout" required autofocus autocomplete="off"> </label><br>
+    </fieldset>
+    <button type="submit">Ajout</button>
+    <button type="button" onclick="window.location.href='{{url_for('depenses')}}'">Annuler</button>
+</form>
+{% endblock %}

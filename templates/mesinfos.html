@@ -1,0 +1,51 @@
+{% extends 'layout.html' %}
+{% block title %}Sae 23{% endblock %}
+{% block main %}
+
+
+<h1>Mes infos : {{ user }}</h1>
+<ul>
+    <button onclick="window.location.href = '/';">Accueil</button>
+    <button onclick="window.location.href = '/anuaire';">Anuaire</button>
+    <button onclick="window.location.href = '/mesdemandes';">Mes demandes</button>
+    <button onclick="window.location.href = '/logout';">Déconnexion</button>
+</ul>
+
+<table>
+    <caption></caption>
+    <thead>
+    <tr>
+        <th>N Securité social</th>
+        <td>Nom</td>
+        <td>Prenom</td>
+        <td>Naissance</td>
+        <th>email</th>
+        <th>Tel</th>
+        <th>Urgence</th>
+        <th>login</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th>{{ infos["secu"] }}</th>
+        <td>{{ infos["nom"] }}</td>
+        <td>{{ infos["prenom"] }}</td>
+        <td>{{ infos["naissance"] }}</td>
+        <td>{{ infos["email"] }}</td>
+        <th>{{ infos["tel"] }}</th>
+        <th>{{ infos["urgence"] }}</th>
+        <th>{{ infos["login"] }}</th>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+        <th colspan="8"></th>
+    </tr>
+    </tfoot>
+
+</table>
+    <button onclick="window.location.href = '/mesdemandes/infos/{{ user }}';">Modifier mon profil</button>
+
+
+
+{% endblock %}

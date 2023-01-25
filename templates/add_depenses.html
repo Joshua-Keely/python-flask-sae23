@@ -1,0 +1,51 @@
+{% extends 'layout.html' %}
+{% block title %}Modification du profil{% endblock %}
+{% block main %}
+<form method="POST">
+
+    <table>
+    <caption></caption>
+    <thead>
+    <tr>
+        <th>Id mission</th>
+        <td>Motif</td>
+        <td>Debut</td>
+        <td>Fin</td>
+        <th>Etat</th>
+        <th>secu</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for u in missions %}
+    <tr>
+        <th>{{ u["id"] }}</th>
+        <td>{{ u["motif"] }}</td>
+        <td>{{ u["debut"] }}</td>
+        <td>{{ u["fin"] }}</td>
+        <td>{{ u["Etat"] }}</td>
+        <td>{{ u["secu"] }}</td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+        <th colspan="4"></th>
+    </tr>
+    {% endfor %}
+    </tfoot>
+</table>
+
+
+
+
+
+
+    <h1>Ajout d'une depenses </h1>
+    <fieldset>
+        <label>Id missions : <input type="text" name="id_mission" required autofocus autocomplete="off"> </label><br>
+        <label>Nature : <input type="text" name="nature" required autofocus autocomplete="off"> </label><br>
+        <label>Cout : <input type="text" name="cout" required autofocus autocomplete="off"> </label><br>
+    </fieldset>
+    <button type="submit">Ajout</button>
+    <button type="button" onclick="window.location.href='{{url_for('accueil')}}'">Annuler</button>
+</form>
+{% endblock %}

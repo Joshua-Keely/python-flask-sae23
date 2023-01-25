@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+{% block title %}Ajout d'une demande{% endblock %}
+{% block main %}
+<form method="POST">
+    <h1>Ajout d'une demande </h1>
+
+    <fieldset>
+        <legend>Mission</legend>
+        <label>Id mission : <input type="text" name="id" readonly="readonly" value="{{ id }}"></label><br>
+        <label>Motif : <input type="text" name="motif"></label><br>
+        <label>Code postal : <input type="text" name="code"></label><br>
+        <label>Date départ : <input type="date" name="debut"></label><br>
+        <label>Date fin : <input type="date" name="fin"></label><br>
+        <label>Nombre de repas : <input type="text" name="repas"></label><br>
+        <label>N Securité social : <input type="text" name="secu" readonly="readonly" value="{{ secu }}"></label><br>
+    </fieldset>
+    <button type="submit">Envoyer</button>
+    <button type="button" onclick="window.location.href='{{url_for('mesdemandes')}}'">Annuler</button>
+</form>
+{% endblock %}
